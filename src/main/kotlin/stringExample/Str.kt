@@ -33,7 +33,7 @@ fun main(){
 
     println(str.elementAt(1))   // It returns a character at the given index or throws an IndexOutOfBoundsException if the index does not exist in character sequence.
     println(str.indexOf('l', 3, false))   // It returns the index of first occurrence of the given character, starting from the given index value.
-    println(str.indexOfFirst {  })
+    //println(str.indexOfFirst {  })
     println()
     println()
     println()
