@@ -15,10 +15,35 @@ sealed class Demo {
     }
 }
 
+// A sealed class with a string property
+sealed class Vehicle (val item: String) {
+    //// Two subclasses of sealed class
+    class Audi : Vehicle("AUDI")
+    class Bmw : Vehicle("BMW")
+
+}
+
+// A subclass defined outside the sealed class
+class LandRover: Vehicle("LandRover")
+fun callName(vehicle: Vehicle) {
+    when (vehicle) {
+        is Vehicle.Audi -> println("This is ${vehicle.item}")
+        is Vehicle.Bmw -> println("This is ${vehicle.item}")
+        is LandRover -> println("This is ${vehicle.item}")
+    }
+}
 fun main() {
     val obj1 = Demo.FirstClass()
     obj1.greet()
 
     val obj2 = Demo.SecondClass()
     obj2.greet()
+
+    val vehicle1 = Vehicle.Audi()
+    val vehicle2 = Vehicle.Bmw()
+    val vehicle3 = LandRover()
+
+    callName(vehicle1)
+    callName(vehicle2)
+    callName(vehicle3)
 }
