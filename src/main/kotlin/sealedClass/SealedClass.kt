@@ -37,6 +37,8 @@ fun callName(vehicle: Vehicle) {
         is Vehicle.Bmw -> println("This is ${vehicle.item}")
         is LandRover -> println("This is ${vehicle.item}")
         is Vehicle.Suzuki -> println("This is ${vehicle.item}")
+        Vehicle.ObjClass -> println("No Car Found")
+        else -> println("Nothing ...")
     }
 }
 fun main() {
@@ -50,10 +52,11 @@ fun main() {
     val vehicle2 = Vehicle.Bmw()
     val vehicle3 = LandRover()
     val suzuki = Vehicle.Suzuki("A10")
+    val obj = Vehicle.ObjClass
 
     callName(vehicle1)
     callName(vehicle2)
     callName(vehicle3)
     callName(suzuki)
-
+    callName(obj)
 }
