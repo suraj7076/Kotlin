@@ -21,6 +21,12 @@ sealed class Vehicle (val item: String) {
     class Audi : Vehicle("AUDI")
     class Bmw : Vehicle("BMW")
 
+
+    // we can also declare data class, object declaration, sealed class and interface inside Sealed Class
+    data class Suzuki(val model: String): Vehicle("Suzuki")
+    object ObjClass: Vehicle("OBJ")
+    sealed interface Run
+
 }
 
 // A subclass defined outside the sealed class
@@ -30,6 +36,7 @@ fun callName(vehicle: Vehicle) {
         is Vehicle.Audi -> println("This is ${vehicle.item}")
         is Vehicle.Bmw -> println("This is ${vehicle.item}")
         is LandRover -> println("This is ${vehicle.item}")
+        is Vehicle.Suzuki -> println("This is ${vehicle.item}")
     }
 }
 fun main() {
@@ -42,8 +49,11 @@ fun main() {
     val vehicle1 = Vehicle.Audi()
     val vehicle2 = Vehicle.Bmw()
     val vehicle3 = LandRover()
+    val suzuki = Vehicle.Suzuki("A10")
 
     callName(vehicle1)
     callName(vehicle2)
     callName(vehicle3)
+    callName(suzuki)
+
 }
